@@ -36,7 +36,6 @@ Add your Hetzner API token to your `.env` file:
 
 ```env
 HETZNER_TOKEN=your-hetzner-api-token-here
-HETZNER_BASE_URL=https://api.hetzner.cloud
 ```
 
 ## Usage
