@@ -1,0 +1,42 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Boci\HetznerLaravel\Requests\DnsRrsets;
+
+use Boci\HetznerLaravel\Requests\Request;
+
+/**
+ * Create DNS RRSet Request
+ */
+final class CreateRequest extends Request
+{
+    /**
+     * Create a new create DNS RRSet request instance.
+     *
+     * @param  array<string, mixed>  $parameters
+     */
+    public function __construct(string $zoneIdOrName, array $parameters)
+    {
+        parent::__construct($parameters);
+        $this->zoneIdOrName = $zoneIdOrName;
+    }
+
+    /**
+     * Get the HTTP method for this request.
+     */
+    public function method(): string
+    {
+        return 'POST';
+    }
+
+    /**
+     * Get the URI for this request.
+     */
+    public function uri(): string
+    {
+        return "/v1/zones/{$this->zoneIdOrName}/rrsets";
+    }
+
+    private string $zoneIdOrName;
+}
