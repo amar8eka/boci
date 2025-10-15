@@ -5,5 +5,4 @@
  */
 return [
     'token' => env('HETZNER_TOKEN'),
-    'base_url' => env('HETZNER_BASE_URL', 'https://api.hetzner.cloud/v1'),
 ];
