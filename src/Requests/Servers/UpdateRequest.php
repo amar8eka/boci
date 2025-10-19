@@ -36,6 +36,6 @@ final class UpdateRequest extends Request
      */
     public function uri(): string
     {
-        return 'servers/'.$this->parameters['server_id'];
+        return '/v1/servers/'.$this->parameters['server_id'];
     }
 }

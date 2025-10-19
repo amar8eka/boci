@@ -36,6 +36,6 @@ final class ChangeIpRangeRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks/'.$this->parameters['network_id'].'/actions/change_ip_range';
+        return '/v1/networks/'.$this->parameters['network_id'].'/actions/change_ip_range';
     }
 }

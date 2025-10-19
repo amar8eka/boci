@@ -39,6 +39,6 @@ final class DeleteSubnetRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks/'.$this->parameters['network_id'].'/actions/delete_subnet';
+        return '/v1/networks/'.$this->parameters['network_id'].'/actions/delete_subnet';
     }
 }

@@ -35,6 +35,6 @@ final class ListRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks';
+        return '/v1/networks';
     }
 }

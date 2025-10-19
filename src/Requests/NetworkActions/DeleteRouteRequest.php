@@ -39,6 +39,6 @@ final class DeleteRouteRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks/'.$this->parameters['network_id'].'/actions/delete_route';
+        return '/v1/networks/'.$this->parameters['network_id'].'/actions/delete_route';
     }
 }

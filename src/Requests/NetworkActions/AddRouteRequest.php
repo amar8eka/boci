@@ -36,6 +36,6 @@ final class AddRouteRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks/'.$this->parameters['network_id'].'/actions/add_route';
+        return '/v1/networks/'.$this->parameters['network_id'].'/actions/add_route';
     }
 }

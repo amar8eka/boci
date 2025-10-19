@@ -36,6 +36,6 @@ final class ListActionsRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks/'.$this->parameters['network_id'].'/actions';
+        return '/v1/networks/'.$this->parameters['network_id'].'/actions';
     }
 }

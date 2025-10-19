@@ -35,6 +35,6 @@ final class RetrieveRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks/'.$this->parameters['network_id'];
+        return '/v1/networks/'.$this->parameters['network_id'];
     }
 }

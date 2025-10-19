@@ -39,6 +39,6 @@ final class GetActionRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks/'.$this->parameters['network_id'].'/actions/'.$this->parameters['action_id'];
+        return '/v1/networks/'.$this->parameters['network_id'].'/actions/'.$this->parameters['action_id'];
     }
 }

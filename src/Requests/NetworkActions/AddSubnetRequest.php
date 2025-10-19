@@ -36,6 +36,6 @@ final class AddSubnetRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks/'.$this->parameters['network_id'].'/actions/add_subnet';
+        return '/v1/networks/'.$this->parameters['network_id'].'/actions/add_subnet';
     }
 }

@@ -36,6 +36,6 @@ final class ChangeProtectionRequest extends Request
      */
     public function uri(): string
     {
-        return 'networks/'.$this->parameters['network_id'].'/actions/change_protection';
+        return '/v1/networks/'.$this->parameters['network_id'].'/actions/change_protection';
     }
 }
