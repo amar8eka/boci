@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/boci/hetzner-laravel.svg?style=flat-square)](https://packagist.org/packages/boci/hetzner-laravel)
 [![Total Downloads](https://img.shields.io/packagist/dt/boci/hetzner-laravel.svg?style=flat-square)](https://packagist.org/packages/boci/hetzner-laravel)
-![GitHub Actions](https://github.com/boci/hetzner-laravel/actions/workflows/main.yml/badge.svg)
+[![GitHub Actions](https://github.com/amar8eka/hetzner-laravel/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/amar8eka/hetzner-laravel/actions/workflows/main.yml)
 
 ⚡️ **Hetzner Laravel** is a supercharged community-maintained Laravel SDK that allows you to interact with the Hetzner Cloud API. Inspired by Nuno Maduro's excellent [OpenAI PHP client](https://github.com/openai-php/client).
 
