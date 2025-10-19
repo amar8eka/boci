@@ -10,7 +10,7 @@
         "sdk",
         "api-client"
     ],
-    "homepage": "https://github.com/boci/hetzner-laravel",
+    "homepage": "https://github.com/amar8eka/hetzner-laravel",
     "license": "MIT",
     "type": "library",
     "authors": [
