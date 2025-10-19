@@ -191,6 +191,7 @@ foreach ($zones->zones() as $zone) {
 // Create a DNS zone
 $response = HetznerLaravel::dnsZones()->create([
     'name' => 'example.com',
+    'mode' => 'primary',
     'ttl' => 3600,
 ]);
 
