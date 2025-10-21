@@ -378,6 +378,13 @@ try {
 }
 ```
 
+## Documentation
+
+For more information about the Hetzner Cloud API, please refer to the official documentation:
+
+- [Hetzner Cloud API Documentation](https://docs.hetzner.cloud/)
+- [Hetzner Cloud API Reference](https://docs.hetzner.cloud/reference/cloud)
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
