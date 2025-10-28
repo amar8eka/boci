@@ -64,7 +64,7 @@ final class FloatingIPs
      *
      * @param  string  $floatingIpId  The ID of the floating IP to retrieve
      */
-    public function get(string $floatingIpId): RetrieveResponse
+    public function retrieve(string $floatingIpId): RetrieveResponse
     {
         $request = new RetrieveRequest($floatingIpId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

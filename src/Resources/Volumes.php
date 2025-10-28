@@ -64,7 +64,7 @@ final class Volumes
      *
      * @param  string  $volumeId  The ID of the volume to retrieve
      */
-    public function get(string $volumeId): RetrieveResponse
+    public function retrieve(string $volumeId): RetrieveResponse
     {
         $request = new RetrieveRequest($volumeId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

@@ -294,7 +294,7 @@ final class FirewallsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $firewallId = '123';
-        $response = $client->firewalls()->get($firewallId);
+        $response = $client->firewalls()->retrieve($firewallId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
 
@@ -358,7 +358,7 @@ final class FirewallsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $firewallId = '456';
-        $response = $client->firewalls()->get($firewallId);
+        $response = $client->firewalls()->retrieve($firewallId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
 
@@ -606,7 +606,7 @@ final class FirewallsTest extends TestCase
         // Test various firewall operations
         $firewallsFake->list();
         $firewallsFake->create(['name' => 'test-firewall']);
-        $firewallsFake->get('123');
+        $firewallsFake->retrieve('123');
         $firewallsFake->update('123', ['name' => 'updated']);
         $firewallsFake->delete('123');
 
@@ -671,7 +671,7 @@ final class FirewallsTest extends TestCase
         // Second call should throw exception
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Network timeout');
-        $client->firewalls()->get('456');
+        $client->firewalls()->retrieve('456');
     }
 
     /**
@@ -804,7 +804,7 @@ final class FirewallsTest extends TestCase
         $this->assertEquals(1, $firewall->id());
         $this->assertEquals('web-firewall', $firewall->name());
 
-        $getResponse = $client->firewalls()->get('1');
+        $getResponse = $client->firewalls()->retrieve('1');
         $retrievedFirewall = $getResponse->firewall();
         $this->assertEquals($firewall->id(), $retrievedFirewall->id());
 
@@ -832,7 +832,7 @@ final class FirewallsTest extends TestCase
 
         $client->firewalls()->list(['name' => 'production']);
         $client->firewalls()->create(['name' => 'test-firewall']);
-        $client->firewalls()->get('999');
+        $client->firewalls()->retrieve('999');
         $client->firewalls()->update('999', ['name' => 'updated']);
         $client->firewalls()->delete('999');
 
@@ -899,7 +899,7 @@ final class FirewallsTest extends TestCase
         ];
         $client = $this->fakeClient($responses, $requests);
 
-        $response = $client->firewalls()->get('200');
+        $response = $client->firewalls()->retrieve('200');
         $firewall = $response->firewall();
 
         $this->assertEquals(200, $firewall->id());
@@ -965,7 +965,7 @@ final class FirewallsTest extends TestCase
 
         $firewallId = '123';
         $actionId = '456';
-        $response = $client->firewalls()->actions()->get($firewallId, $actionId);
+        $response = $client->firewalls()->actions()->retrieve($firewallId, $actionId);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
 

@@ -79,7 +79,7 @@ final class PrimaryIPActions
      * @param  string  $primaryIpId  The ID of the primary IP
      * @param  string  $actionId  The ID of the action to retrieve
      */
-    public function get(string $primaryIpId, string $actionId): ActionResponse
+    public function retrieve(string $primaryIpId, string $actionId): ActionResponse
     {
         $request = new GetActionRequest($primaryIpId, $actionId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

@@ -94,7 +94,7 @@ final class NetworksFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function get(string $networkId): RetrieveResponse
+    public function retrieve(string $networkId): RetrieveResponse
     {
         $this->requests[] = [
             'resource' => 'networks',

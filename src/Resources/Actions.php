@@ -45,7 +45,7 @@ final class Actions
      *
      * @param  string  $actionId  The ID of the action to retrieve
      */
-    public function get(string $actionId): GetActionResponse
+    public function retrieve(string $actionId): GetActionResponse
     {
         $request = new GetActionRequest($actionId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

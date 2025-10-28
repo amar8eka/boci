@@ -51,7 +51,7 @@ final class FloatingIPActions
      * @param  string  $floatingIpId  The ID of the floating IP
      * @param  string  $actionId  The ID of the action to retrieve
      */
-    public function get(string $floatingIpId, string $actionId): ActionResponse
+    public function retrieve(string $floatingIpId, string $actionId): ActionResponse
     {
         $request = new GetActionRequest($floatingIpId, $actionId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

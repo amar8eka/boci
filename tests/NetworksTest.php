@@ -267,7 +267,7 @@ final class NetworksTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $networkId = '42';
-        $response = $client->networks()->get($networkId);
+        $response = $client->networks()->retrieve($networkId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $this->assertIsArray($response->network());
@@ -337,7 +337,7 @@ final class NetworksTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $networkId = '123';
-        $response = $client->networks()->get($networkId);
+        $response = $client->networks()->retrieve($networkId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $network = $response->network();
@@ -474,7 +474,7 @@ final class NetworksTest extends TestCase
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Network not found');
 
-        $client->networks()->get('999');
+        $client->networks()->retrieve('999');
     }
 
     /**
@@ -539,7 +539,7 @@ final class NetworksTest extends TestCase
         // Second call should throw exception
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Network not found');
-        $client->networks()->get('999');
+        $client->networks()->retrieve('999');
     }
 
     /**
@@ -663,7 +663,7 @@ final class NetworksTest extends TestCase
         $firstNetwork = $networks[0];
         $networkId = (string) $firstNetwork['id'];
 
-        $getResponse = $client->networks()->get($networkId);
+        $getResponse = $client->networks()->retrieve($networkId);
         $this->assertInstanceOf(RetrieveResponse::class, $getResponse);
         $this->assertEquals($firstNetwork['id'], $getResponse->network()['id']);
         $this->assertEquals($firstNetwork['name'], $getResponse->network()['name']);
@@ -686,7 +686,7 @@ final class NetworksTest extends TestCase
 
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Network not found');
-        $client->networks()->get('nonexistent');
+        $client->networks()->retrieve('nonexistent');
     }
 
     /**
@@ -816,7 +816,7 @@ final class NetworksTest extends TestCase
 
         $networkId = '42';
         $actionId = '123';
-        $response = $client->networks()->actions()->get($networkId, $actionId);
+        $response = $client->networks()->actions()->retrieve($networkId, $actionId);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
         $this->assertIsArray($response->action());
@@ -1042,7 +1042,7 @@ final class NetworksTest extends TestCase
         $firstAction = $actions[0];
         $actionId = (string) $firstAction['id'];
 
-        $getResponse = $client->networks()->actions()->get('42', $actionId);
+        $getResponse = $client->networks()->actions()->retrieve('42', $actionId);
         $this->assertInstanceOf(ActionResponse::class, $getResponse);
         $this->assertEquals($firstAction['id'], $getResponse->action()['id']);
         $this->assertEquals($firstAction['command'], $getResponse->action()['command']);
@@ -1065,7 +1065,7 @@ final class NetworksTest extends TestCase
 
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Network action not found');
-        $client->networks()->actions()->get('42', '999');
+        $client->networks()->actions()->retrieve('42', '999');
     }
 
     /**

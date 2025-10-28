@@ -63,7 +63,7 @@ final class ActionsFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function get(string $actionId): GetActionResponse
+    public function retrieve(string $actionId): GetActionResponse
     {
         $this->requests[] = [
             'resource' => 'actions',

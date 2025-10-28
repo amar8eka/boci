@@ -64,7 +64,7 @@ final class Firewalls
      *
      * @param  string  $firewallId  The ID of the firewall to retrieve
      */
-    public function get(string $firewallId): RetrieveResponse
+    public function retrieve(string $firewallId): RetrieveResponse
     {
         $request = new RetrieveRequest($firewallId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

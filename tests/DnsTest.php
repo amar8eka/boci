@@ -251,7 +251,7 @@ final class DnsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $zoneIdOrName = 'example.com';
-        $response = $client->dnsZones()->get($zoneIdOrName);
+        $response = $client->dnsZones()->retrieve($zoneIdOrName);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $this->assertInstanceOf(DnsZone::class, $response->zone());
@@ -308,7 +308,7 @@ final class DnsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $zoneIdOrName = 'detailed-zone.com';
-        $response = $client->dnsZones()->get($zoneIdOrName);
+        $response = $client->dnsZones()->retrieve($zoneIdOrName);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $zone = $response->zone();
@@ -492,7 +492,7 @@ $TTL 3600
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('DNS zone not found');
 
-        $client->dnsZones()->get('nonexistent.com');
+        $client->dnsZones()->retrieve('nonexistent.com');
     }
 
     /**
@@ -565,7 +565,7 @@ $TTL 3600
         // Second call should throw exception
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('DNS zone not found');
-        $client->dnsZones()->get('nonexistent.com');
+        $client->dnsZones()->retrieve('nonexistent.com');
     }
 
     /**
@@ -693,7 +693,7 @@ $TTL 3600
         $firstZone = $listResponse->zones()[0];
         $zoneIdOrName = $firstZone->id();
 
-        $getResponse = $client->dnsZones()->get($zoneIdOrName);
+        $getResponse = $client->dnsZones()->retrieve($zoneIdOrName);
         $this->assertInstanceOf(RetrieveResponse::class, $getResponse);
         $this->assertEquals($firstZone->id(), $getResponse->zone()->id());
         $this->assertEquals($firstZone->name(), $getResponse->zone()->name());
@@ -716,7 +716,7 @@ $TTL 3600
 
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('DNS zone not found');
-        $client->dnsZones()->get('nonexistent.com');
+        $client->dnsZones()->retrieve('nonexistent.com');
     }
 
     /**
@@ -869,7 +869,7 @@ $TTL 3600
 
         $zoneIdOrName = 'example.com';
         $actionId = '123';
-        $response = $client->dnsZones()->actions()->get($zoneIdOrName, $actionId);
+        $response = $client->dnsZones()->actions()->retrieve($zoneIdOrName, $actionId);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
         $this->assertInstanceOf(\Boci\HetznerLaravel\Responses\DnsZoneActions\Action::class, $response->action());
@@ -1107,7 +1107,7 @@ $TTL 3600
         $zoneIdOrName = 'example.com';
         $rrName = '@';
         $rrType = 'A';
-        $response = $client->dnsZones()->rrsets()->get($zoneIdOrName, $rrName, $rrType);
+        $response = $client->dnsZones()->rrsets()->retrieve($zoneIdOrName, $rrName, $rrType);
 
         $this->assertInstanceOf(RRSetGetResponse::class, $response);
         $this->assertInstanceOf(RRSet::class, $response->rrset());

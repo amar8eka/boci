@@ -48,7 +48,7 @@ final class ImageActions implements ResourceContract
      * @param  string  $imageId  The ID of the image
      * @param  string  $actionId  The ID of the action to retrieve
      */
-    public function get(string $imageId, string $actionId): ActionResponse
+    public function retrieve(string $imageId, string $actionId): ActionResponse
     {
         $request = new GetActionRequest($imageId, $actionId);
 
