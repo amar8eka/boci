@@ -116,7 +116,7 @@ final class LoadBalancerActions
      * @param  string  $loadBalancerId  The ID of the load balancer
      * @param  array<string, mixed>  $parameters  The target parameters
      */
-    public function addTarretrieve(string $loadBalancerId, array $parameters): ActionResponse
+    public function addTarget(string $loadBalancerId, array $parameters): ActionResponse
     {
         $request = new AddTargetRequest($loadBalancerId, $parameters);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());
@@ -130,7 +130,7 @@ final class LoadBalancerActions
      * @param  string  $loadBalancerId  The ID of the load balancer
      * @param  array<string, mixed>  $parameters  The target removal parameters
      */
-    public function removeTarretrieve(string $loadBalancerId, array $parameters): ActionResponse
+    public function removeTarget(string $loadBalancerId, array $parameters): ActionResponse
     {
         $request = new RemoveTargetRequest($loadBalancerId, $parameters);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

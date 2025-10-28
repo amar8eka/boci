@@ -181,7 +181,7 @@ final class LoadBalancerActionsFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function addTarretrieve(string $loadBalancerId, array $parameters): ActionResponse
+    public function addTarget(string $loadBalancerId, array $parameters): ActionResponse
     {
         $this->requests[] = [
             'resource' => 'load_balancer_actions',
@@ -210,7 +210,7 @@ final class LoadBalancerActionsFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function removeTarretrieve(string $loadBalancerId, array $parameters): ActionResponse
+    public function removeTarget(string $loadBalancerId, array $parameters): ActionResponse
     {
         $this->requests[] = [
             'resource' => 'load_balancer_actions',

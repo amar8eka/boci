@@ -982,7 +982,7 @@ final class LoadBalancersTest extends TestCase
     /**
      * Test load balancer actions - add target
      */
-    public function test_can_add_load_balancer_tarretrieve(): void
+    public function test_can_add_load_balancer_target(): void
     {
         $requests = [];
         $responses = [];
@@ -997,7 +997,7 @@ final class LoadBalancersTest extends TestCase
             'use_private_ip' => false,
         ];
 
-        $response = $client->loadBalancers()->actions()->addTarretrieve($loadBalancerId, $parameters);
+        $response = $client->loadBalancers()->actions()->addTarget($loadBalancerId, $parameters);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
         $this->assertInstanceOf(\Boci\HetznerLaravel\Responses\LoadBalancerActions\Action::class, $response->action());
