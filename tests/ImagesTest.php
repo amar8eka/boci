@@ -907,7 +907,7 @@ final class ImagesTest extends TestCase
 
         $imageId = '123';
         $actionId = '456';
-        $response = $client->images()->actions()->get($imageId, $actionId);
+        $response = $client->images()->actions()->retrieve($imageId, $actionId);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
 

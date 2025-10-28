@@ -276,7 +276,7 @@ final class VolumesTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $volumeId = '42';
-        $response = $client->volumes()->get($volumeId);
+        $response = $client->volumes()->retrieve($volumeId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $this->assertInstanceOf(Volume::class, $response->volume());
@@ -336,7 +336,7 @@ final class VolumesTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $volumeId = '123';
-        $response = $client->volumes()->get($volumeId);
+        $response = $client->volumes()->retrieve($volumeId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $volume = $response->volume();
@@ -480,7 +480,7 @@ final class VolumesTest extends TestCase
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Volume not found');
 
-        $client->volumes()->get('999');
+        $client->volumes()->retrieve('999');
     }
 
     /**
@@ -556,7 +556,7 @@ final class VolumesTest extends TestCase
         // Second call should throw exception
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Volume not found');
-        $client->volumes()->get('999');
+        $client->volumes()->retrieve('999');
     }
 
     /**
@@ -690,7 +690,7 @@ final class VolumesTest extends TestCase
         $firstVolume = $listResponse->volumes()[0];
         $volumeId = (string) $firstVolume->id();
 
-        $getResponse = $client->volumes()->get($volumeId);
+        $getResponse = $client->volumes()->retrieve($volumeId);
         $this->assertInstanceOf(RetrieveResponse::class, $getResponse);
         $this->assertEquals($firstVolume->id(), $getResponse->volume()->id());
         $this->assertEquals($firstVolume->name(), $getResponse->volume()->name());
@@ -713,7 +713,7 @@ final class VolumesTest extends TestCase
 
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Volume not found');
-        $client->volumes()->get('nonexistent');
+        $client->volumes()->retrieve('nonexistent');
     }
 
     /**
@@ -860,7 +860,7 @@ final class VolumesTest extends TestCase
 
         $volumeId = '42';
         $actionId = '123';
-        $response = $client->volumes()->actions()->get($volumeId, $actionId);
+        $response = $client->volumes()->actions()->retrieve($volumeId, $actionId);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
         $this->assertInstanceOf(Action::class, $response->action());

@@ -167,7 +167,7 @@ final class LoadBalancerTypesTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $loadBalancerTypeId = '42';
-        $response = $client->loadBalancerTypes()->get($loadBalancerTypeId);
+        $response = $client->loadBalancerTypes()->retrieve($loadBalancerTypeId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $this->assertInstanceOf(LoadBalancerType::class, $response->loadBalancerType());
@@ -241,7 +241,7 @@ final class LoadBalancerTypesTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $loadBalancerTypeId = '99';
-        $response = $client->loadBalancerTypes()->get($loadBalancerTypeId);
+        $response = $client->loadBalancerTypes()->retrieve($loadBalancerTypeId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $loadBalancerType = $response->loadBalancerType();
@@ -317,7 +317,7 @@ final class LoadBalancerTypesTest extends TestCase
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Load balancer type not found');
 
-        $client->loadBalancerTypes()->get('999');
+        $client->loadBalancerTypes()->retrieve('999');
     }
 
     /**
@@ -392,7 +392,7 @@ final class LoadBalancerTypesTest extends TestCase
         // Second call should throw exception
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Load balancer type not found');
-        $client->loadBalancerTypes()->get('999');
+        $client->loadBalancerTypes()->retrieve('999');
     }
 
     /**
@@ -629,7 +629,7 @@ final class LoadBalancerTypesTest extends TestCase
         $firstLoadBalancerType = $listResponse->loadBalancerTypes()[0];
         $loadBalancerTypeId = (string) $firstLoadBalancerType->id();
 
-        $getResponse = $client->loadBalancerTypes()->get($loadBalancerTypeId);
+        $getResponse = $client->loadBalancerTypes()->retrieve($loadBalancerTypeId);
         $this->assertInstanceOf(RetrieveResponse::class, $getResponse);
         $this->assertEquals($firstLoadBalancerType->id(), $getResponse->loadBalancerType()->id());
         $this->assertEquals($firstLoadBalancerType->name(), $getResponse->loadBalancerType()->name());
@@ -652,7 +652,7 @@ final class LoadBalancerTypesTest extends TestCase
 
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Load balancer type not found');
-        $client->loadBalancerTypes()->get('nonexistent');
+        $client->loadBalancerTypes()->retrieve('nonexistent');
     }
 
     /**

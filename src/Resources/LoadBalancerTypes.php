@@ -45,7 +45,7 @@ final class LoadBalancerTypes
      *
      * @param  string  $loadBalancerTypeId  The ID of the load balancer type to retrieve
      */
-    public function get(string $loadBalancerTypeId): RetrieveResponse
+    public function retrieve(string $loadBalancerTypeId): RetrieveResponse
     {
         $request = new RetrieveRequest($loadBalancerTypeId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

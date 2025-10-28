@@ -74,7 +74,7 @@ final class DnsRrsets
      * @param  string  $rrName  The name of the RRSet
      * @param  string  $rrType  The type of the RRSet
      */
-    public function get(string $zoneIdOrName, string $rrName, string $rrType): GetResponse
+    public function retrieve(string $zoneIdOrName, string $rrName, string $rrType): GetResponse
     {
         $request = new GetRequest($zoneIdOrName, $rrName, $rrType);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

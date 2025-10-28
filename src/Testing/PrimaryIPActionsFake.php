@@ -121,7 +121,7 @@ final class PrimaryIPActionsFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function get(string $primaryIpId, string $actionId): ActionResponse
+    public function retrieve(string $primaryIpId, string $actionId): ActionResponse
     {
         $this->requests[] = [
             'resource' => 'primary_ip_actions',

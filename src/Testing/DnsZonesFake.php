@@ -96,7 +96,7 @@ final class DnsZonesFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function get(string $zoneIdOrName): RetrieveResponse
+    public function retrieve(string $zoneIdOrName): RetrieveResponse
     {
         $this->requests[] = [
             'resource' => 'dns_zones',

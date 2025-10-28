@@ -94,7 +94,7 @@ final class FloatingIPsFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function get(string $floatingIpId): RetrieveResponse
+    public function retrieve(string $floatingIpId): RetrieveResponse
     {
         $this->requests[] = [
             'resource' => 'floating_ips',

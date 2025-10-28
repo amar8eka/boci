@@ -253,7 +253,7 @@ final class LoadBalancersTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $loadBalancerId = '42';
-        $response = $client->loadBalancers()->get($loadBalancerId);
+        $response = $client->loadBalancers()->retrieve($loadBalancerId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $this->assertInstanceOf(LoadBalancer::class, $response->loadBalancer());
@@ -404,7 +404,7 @@ final class LoadBalancersTest extends TestCase
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Load balancer not found');
 
-        $client->loadBalancers()->get('999');
+        $client->loadBalancers()->retrieve('999');
     }
 
     /**
@@ -517,7 +517,7 @@ final class LoadBalancersTest extends TestCase
         // Second call should throw exception
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Load balancer not found');
-        $client->loadBalancers()->get('999');
+        $client->loadBalancers()->retrieve('999');
     }
 
     /**
@@ -827,7 +827,7 @@ final class LoadBalancersTest extends TestCase
         $firstLoadBalancer = $listResponse->loadBalancers()[0];
         $loadBalancerId = (string) $firstLoadBalancer->id();
 
-        $getResponse = $client->loadBalancers()->get($loadBalancerId);
+        $getResponse = $client->loadBalancers()->retrieve($loadBalancerId);
         $this->assertInstanceOf(RetrieveResponse::class, $getResponse);
         $this->assertEquals($firstLoadBalancer->id(), $getResponse->loadBalancer()->id());
         $this->assertEquals($firstLoadBalancer->name(), $getResponse->loadBalancer()->name());
@@ -850,7 +850,7 @@ final class LoadBalancersTest extends TestCase
 
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Load balancer not found');
-        $client->loadBalancers()->get('nonexistent');
+        $client->loadBalancers()->retrieve('nonexistent');
     }
 
     /**
@@ -928,7 +928,7 @@ final class LoadBalancersTest extends TestCase
 
         $loadBalancerId = '42';
         $actionId = '123';
-        $response = $client->loadBalancers()->actions()->get($loadBalancerId, $actionId);
+        $response = $client->loadBalancers()->actions()->retrieve($loadBalancerId, $actionId);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
         $this->assertInstanceOf(\Boci\HetznerLaravel\Responses\LoadBalancerActions\Action::class, $response->action());
@@ -982,7 +982,7 @@ final class LoadBalancersTest extends TestCase
     /**
      * Test load balancer actions - add target
      */
-    public function test_can_add_load_balancer_target(): void
+    public function test_can_add_load_balancer_tarretrieve(): void
     {
         $requests = [];
         $responses = [];
@@ -997,7 +997,7 @@ final class LoadBalancersTest extends TestCase
             'use_private_ip' => false,
         ];
 
-        $response = $client->loadBalancers()->actions()->addTarget($loadBalancerId, $parameters);
+        $response = $client->loadBalancers()->actions()->addTarretrieve($loadBalancerId, $parameters);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
         $this->assertInstanceOf(\Boci\HetznerLaravel\Responses\LoadBalancerActions\Action::class, $response->action());

@@ -65,7 +65,7 @@ final class FirewallActionsFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function get(string $firewallId, string $actionId): ActionResponse
+    public function retrieve(string $firewallId, string $actionId): ActionResponse
     {
         $this->requests[] = [
             'resource' => 'firewall_actions',

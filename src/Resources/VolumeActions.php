@@ -51,7 +51,7 @@ final class VolumeActions
      * @param  string  $volumeId  The ID of the volume
      * @param  string  $actionId  The ID of the action to retrieve
      */
-    public function get(string $volumeId, string $actionId): ActionResponse
+    public function retrieve(string $volumeId, string $actionId): ActionResponse
     {
         $request = new GetActionRequest($volumeId, $actionId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

@@ -94,7 +94,7 @@ final class VolumesFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function get(string $volumeId): RetrieveResponse
+    public function retrieve(string $volumeId): RetrieveResponse
     {
         $this->requests[] = [
             'resource' => 'volumes',

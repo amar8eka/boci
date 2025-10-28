@@ -99,7 +99,7 @@ final class DnsRrsetsFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function get(string $zoneIdOrName, string $rrName, string $rrType): GetResponse
+    public function retrieve(string $zoneIdOrName, string $rrName, string $rrType): GetResponse
     {
         $this->requests[] = [
             'resource' => 'dns_rrsets',

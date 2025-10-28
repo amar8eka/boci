@@ -64,7 +64,7 @@ final class PrimaryIPs
      *
      * @param  string  $primaryIpId  The ID of the primary IP to retrieve
      */
-    public function get(string $primaryIpId): RetrieveResponse
+    public function retrieve(string $primaryIpId): RetrieveResponse
     {
         $request = new RetrieveRequest($primaryIpId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

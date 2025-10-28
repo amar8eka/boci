@@ -408,28 +408,28 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ### 🚀 Actions
 - `list()` - Get multiple actions
-- `get(string $actionId)` - Get an action
+- `retrieve(string $actionId)` - Get an action
 
 ### 🔐 Security
 
 #### Certificates
 - `list()` - List certificates
 - `create(array $parameters)` - Create a certificate
-- `get(string $certificateId)` - Get a certificate
+- `retrieve(string $certificateId)` - Get a certificate
 - `update(string $certificateId, array $parameters)` - Update a certificate
 - `delete(string $certificateId)` - Delete a certificate
 
 #### SSH Keys
 - `list()` - List SSH keys
 - `create(array $parameters)` - Create an SSH key
-- `get(string $sshKeyId)` - Get an SSH key
+- `retrieve(string $sshKeyId)` - Get an SSH key
 - `update(string $sshKeyId, array $parameters)` - Update an SSH key
 - `delete(string $sshKeyId)` - Delete an SSH key
 
 ### 🌐 DNS Zones
 - `list()` - List DNS zones
 - `create(array $parameters)` - Create a DNS zone
-- `get(string $zoneIdOrName)` - Get a DNS zone
+- `retrieve(string $zoneIdOrName)` - Get a DNS zone
 - `update(string $zoneIdOrName, array $parameters)` - Update a DNS zone
 - `delete(string $zoneIdOrName)` - Delete a DNS zone
 - `export(string $zoneIdOrName)` - Export zone file
@@ -439,12 +439,12 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ### 📍 Locations
 - `list()` - List locations
-- `get(string $locationId)` - Get a location
+- `retrieve(string $locationId)` - Get a location
 
 ### 🔥 Firewalls
 - `list()` - List firewalls
 - `create(array $parameters)` - Create a firewall
-- `get(string $firewallId)` - Get a firewall
+- `retrieve(string $firewallId)` - Get a firewall
 - `update(string $firewallId, array $parameters)` - Update a firewall
 - `delete(string $firewallId)` - Delete a firewall
 - `actions()` - Access firewall actions
@@ -452,7 +452,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ### 🌐 Floating IPs
 - `list()` - List floating IPs
 - `create(array $parameters)` - Create a floating IP
-- `get(string $floatingIpId)` - Get a floating IP
+- `retrieve(string $floatingIpId)` - Get a floating IP
 - `update(string $floatingIpId, array $parameters)` - Update a floating IP
 - `delete(string $floatingIpId)` - Delete a floating IP
 - `actions()` - Access floating IP actions
@@ -460,7 +460,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ### 🖥️ Servers
 - `list()` - List servers
 - `create(array $parameters)` - Create a server
-- `get(string $serverId)` - Get a server
+- `retrieve(string $serverId)` - Get a server
 - `update(string $serverId, array $parameters)` - Update a server
 - `delete(string $serverId)` - Delete a server
 - `metrics(string $serverId, array $parameters)` - Get server metrics
@@ -468,38 +468,38 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ### 🖼️ Images
 - `list()` - List images
-- `get(string $imageId)` - Get an image
+- `retrieve(string $imageId)` - Get an image
 - `update(string $imageId, array $parameters)` - Update an image
 - `delete(string $imageId)` - Delete an image
 - `actions()` - Access image actions
 
 ### 💿 ISOs
 - `list()` - List ISOs
-- `get(string $isoId)` - Get an ISO
+- `retrieve(string $isoId)` - Get an ISO
 
 ### 📦 Placement Groups
 - `list()` - List placement groups
 - `create(array $parameters)` - Create a placement group
-- `get(string $placementGroupId)` - Get a placement group
+- `retrieve(string $placementGroupId)` - Get a placement group
 - `update(string $placementGroupId, array $parameters)` - Update a placement group
 - `delete(string $placementGroupId)` - Delete a placement group
 
 ### 🔗 Primary IPs
 - `list()` - List primary IPs
 - `create(array $parameters)` - Create a primary IP
-- `get(string $primaryIpId)` - Get a primary IP
+- `retrieve(string $primaryIpId)` - Get a primary IP
 - `update(string $primaryIpId, array $parameters)` - Update a primary IP
 - `delete(string $primaryIpId)` - Delete a primary IP
 - `actions()` - Access primary IP actions
 
 ### ⚙️ Server Types
 - `list()` - List server types
-- `get(string $serverTypeId)` - Get a server type
+- `retrieve(string $serverTypeId)` - Get a server type
 
 ### ⚖️ Load Balancers
 - `list()` - List load balancers
 - `create(array $parameters)` - Create a load balancer
-- `get(string $loadBalancerId)` - Get a load balancer
+- `retrieve(string $loadBalancerId)` - Get a load balancer
 - `update(string $loadBalancerId, array $parameters)` - Update a load balancer
 - `delete(string $loadBalancerId)` - Delete a load balancer
 - `metrics(string $loadBalancerId, array $parameters)` - Get load balancer metrics
@@ -507,12 +507,12 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ### ⚖️ Load Balancer Types
 - `list()` - List load balancer types
-- `get(string $loadBalancerTypeId)` - Get a load balancer type
+- `retrieve(string $loadBalancerTypeId)` - Get a load balancer type
 
 ### 🌐 Networks
 - `list()` - List networks
 - `create(array $parameters)` - Create a network
-- `get(string $networkId)` - Get a network
+- `retrieve(string $networkId)` - Get a network
 - `update(string $networkId, array $parameters)` - Update a network
 - `delete(string $networkId)` - Delete a network
 - `actions()` - Access network actions
@@ -523,7 +523,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ### 💾 Volumes
 - `list()` - List volumes
 - `create(array $parameters)` - Create a volume
-- `get(string $volumeId)` - Get a volume
+- `retrieve(string $volumeId)` - Get a volume
 - `update(string $volumeId, array $parameters)` - Update a volume
 - `delete(string $volumeId)` - Delete a volume
 - `actions()` - Access volume actions

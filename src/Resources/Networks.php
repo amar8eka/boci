@@ -65,7 +65,7 @@ final class Networks implements ResourceContract
      *
      * @param  string  $networkId  The ID of the network to retrieve
      */
-    public function get(string $networkId): RetrieveResponse
+    public function retrieve(string $networkId): RetrieveResponse
     {
         $request = new RetrieveRequest($networkId);
 

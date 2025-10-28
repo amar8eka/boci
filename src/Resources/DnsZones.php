@@ -68,7 +68,7 @@ final class DnsZones
      *
      * @param  string  $zoneIdOrName  The ID or name of the DNS zone to retrieve
      */
-    public function get(string $zoneIdOrName): RetrieveResponse
+    public function retrieve(string $zoneIdOrName): RetrieveResponse
     {
         $request = new RetrieveRequest($zoneIdOrName);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

@@ -334,7 +334,7 @@ final class PrimaryIPsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $primaryIpId = '42';
-        $response = $client->primaryIPs()->get($primaryIpId);
+        $response = $client->primaryIPs()->retrieve($primaryIpId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $this->assertInstanceOf(PrimaryIP::class, $response->primaryIp());
@@ -426,7 +426,7 @@ final class PrimaryIPsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $primaryIpId = '123';
-        $response = $client->primaryIPs()->get($primaryIpId);
+        $response = $client->primaryIPs()->retrieve($primaryIpId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $primaryIp = $response->primaryIp();
@@ -582,7 +582,7 @@ final class PrimaryIPsTest extends TestCase
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Primary IP not found');
 
-        $client->primaryIPs()->get('999');
+        $client->primaryIPs()->retrieve('999');
     }
 
     /**
@@ -686,7 +686,7 @@ final class PrimaryIPsTest extends TestCase
         // Second call should throw exception
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Primary IP not found');
-        $client->primaryIPs()->get('999');
+        $client->primaryIPs()->retrieve('999');
     }
 
     /**
@@ -876,7 +876,7 @@ final class PrimaryIPsTest extends TestCase
         $firstPrimaryIp = $listResponse->primaryIps()[0];
         $primaryIpId = (string) $firstPrimaryIp->id();
 
-        $getResponse = $client->primaryIPs()->get($primaryIpId);
+        $getResponse = $client->primaryIPs()->retrieve($primaryIpId);
         $this->assertInstanceOf(RetrieveResponse::class, $getResponse);
         $this->assertEquals($firstPrimaryIp->id(), $getResponse->primaryIp()->id());
         $this->assertEquals($firstPrimaryIp->name(), $getResponse->primaryIp()->name());
@@ -899,7 +899,7 @@ final class PrimaryIPsTest extends TestCase
 
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Primary IP not found');
-        $client->primaryIPs()->get('nonexistent');
+        $client->primaryIPs()->retrieve('nonexistent');
     }
 
     /**
@@ -1106,7 +1106,7 @@ final class PrimaryIPsTest extends TestCase
 
         $primaryIpId = '42';
         $actionId = '123';
-        $response = $client->primaryIPs()->actions()->get($primaryIpId, $actionId);
+        $response = $client->primaryIPs()->actions()->retrieve($primaryIpId, $actionId);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
         $this->assertInstanceOf(\Boci\HetznerLaravel\Responses\PrimaryIPActions\Action::class, $response->action());

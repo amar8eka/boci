@@ -53,7 +53,7 @@ final class NetworkActions implements ResourceContract
      * @param  string  $networkId  The ID of the network
      * @param  string  $actionId  The ID of the action to retrieve
      */
-    public function get(string $networkId, string $actionId): ActionResponse
+    public function retrieve(string $networkId, string $actionId): ActionResponse
     {
         $request = new GetActionRequest($networkId, $actionId);
 

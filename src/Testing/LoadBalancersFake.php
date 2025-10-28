@@ -94,7 +94,7 @@ final class LoadBalancersFake implements ResourceContract
      *
      * @throws Throwable When a mock exception is provided
      */
-    public function get(string $loadBalancerId): RetrieveResponse
+    public function retrieve(string $loadBalancerId): RetrieveResponse
     {
         $this->requests[] = [
             'resource' => 'load_balancers',

@@ -50,7 +50,7 @@ final class FirewallActions
      * @param  string  $firewallId  The ID of the firewall
      * @param  string  $actionId  The ID of the action to retrieve
      */
-    public function get(string $firewallId, string $actionId): ActionResponse
+    public function retrieve(string $firewallId, string $actionId): ActionResponse
     {
         $request = new GetActionRequest($firewallId, $actionId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

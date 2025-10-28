@@ -50,7 +50,7 @@ final class DnsZoneActions
      * @param  string  $zoneIdOrName  The ID or name of the DNS zone
      * @param  string  $actionId  The ID of the action to retrieve
      */
-    public function get(string $zoneIdOrName, string $actionId): ActionResponse
+    public function retrieve(string $zoneIdOrName, string $actionId): ActionResponse
     {
         $request = new GetActionRequest($zoneIdOrName, $actionId);
         $response = $this->httpClient->request($request->method(), $request->uri(), $request->options());

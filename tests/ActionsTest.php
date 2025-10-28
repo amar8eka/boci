@@ -154,7 +154,7 @@ final class ActionsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $actionId = '123';
-        $response = $client->actions()->get($actionId);
+        $response = $client->actions()->retrieve($actionId);
 
         $this->assertInstanceOf(GetActionResponse::class, $response);
 
@@ -198,7 +198,7 @@ final class ActionsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $actionId = '456';
-        $response = $client->actions()->get($actionId);
+        $response = $client->actions()->retrieve($actionId);
 
         $this->assertInstanceOf(GetActionResponse::class, $response);
 
@@ -279,7 +279,7 @@ final class ActionsTest extends TestCase
         ];
         $client = $this->fakeClient($responses, $requests);
 
-        $response = $client->actions()->get('789');
+        $response = $client->actions()->retrieve('789');
         $action = $response->action();
 
         $this->assertEquals('error', $action->status());
@@ -326,7 +326,7 @@ final class ActionsTest extends TestCase
         ];
         $client = $this->fakeClient($responses, $requests);
 
-        $response = $client->actions()->get('101');
+        $response = $client->actions()->retrieve('101');
         $action = $response->action();
 
         $resources = $action->resources();
@@ -373,7 +373,7 @@ final class ActionsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         foreach ($statuses as $index => $expectedStatus) {
-            $response = $client->actions()->get((string) ($index + 1));
+            $response = $client->actions()->retrieve((string) ($index + 1));
             $action = $response->action();
 
             $this->assertEquals($expectedStatus, $action->status());
@@ -420,7 +420,7 @@ final class ActionsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         // The fake client will return the error response as-is
-        $response = $client->actions()->get('invalid-id');
+        $response = $client->actions()->retrieve('invalid-id');
         $this->assertInstanceOf(GetActionResponse::class, $response);
 
         $this->assertRequestWasMade($requests, 'actions', 'get');
@@ -439,7 +439,7 @@ final class ActionsTest extends TestCase
         // Test various actions operations
         $actionsFake->list();
         $actionsFake->list(['status' => 'success']);
-        $actionsFake->get('123');
+        $actionsFake->retrieve('123');
 
         // Assert all requests were made
         $this->assertCount(3, $requests);
@@ -505,7 +505,7 @@ final class ActionsTest extends TestCase
         // Second call should throw exception
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Network timeout');
-        $client->actions()->get('456');
+        $client->actions()->retrieve('456');
     }
 
     /**
@@ -586,7 +586,7 @@ final class ActionsTest extends TestCase
         $this->assertCount(1, $actions);
         $firstActionId = $actions[0]->id();
 
-        $detailResponse = $client->actions()->get((string) $firstActionId);
+        $detailResponse = $client->actions()->retrieve((string) $firstActionId);
         $action = $detailResponse->action();
 
         $this->assertEquals($firstActionId, $action->id());
@@ -608,7 +608,7 @@ final class ActionsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $client->actions()->list(['status' => 'running']);
-        $client->actions()->get('999');
+        $client->actions()->retrieve('999');
 
         // Test that specific requests were made
         $this->assertRequestWasMade($requests, 'actions', 'list');
@@ -648,7 +648,7 @@ final class ActionsTest extends TestCase
         ];
         $client = $this->fakeClient($responses, $requests);
 
-        $response = $client->actions()->get('200');
+        $response = $client->actions()->retrieve('200');
         $action = $response->action();
 
         $this->assertEquals(200, $action->id());

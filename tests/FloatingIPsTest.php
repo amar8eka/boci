@@ -288,7 +288,7 @@ final class FloatingIPsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $floatingIpId = '42';
-        $response = $client->floatingIPs()->get($floatingIpId);
+        $response = $client->floatingIPs()->retrieve($floatingIpId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $this->assertInstanceOf(FloatingIP::class, $response->floatingIp());
@@ -357,7 +357,7 @@ final class FloatingIPsTest extends TestCase
         $client = $this->fakeClient($responses, $requests);
 
         $floatingIpId = '123';
-        $response = $client->floatingIPs()->get($floatingIpId);
+        $response = $client->floatingIPs()->retrieve($floatingIpId);
 
         $this->assertInstanceOf(RetrieveResponse::class, $response);
         $floatingIp = $response->floatingIp();
@@ -499,7 +499,7 @@ final class FloatingIPsTest extends TestCase
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Floating IP not found');
 
-        $client->floatingIPs()->get('999');
+        $client->floatingIPs()->retrieve('999');
     }
 
     /**
@@ -582,7 +582,7 @@ final class FloatingIPsTest extends TestCase
         // Second call should throw exception
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Floating IP not found');
-        $client->floatingIPs()->get('999');
+        $client->floatingIPs()->retrieve('999');
     }
 
     /**
@@ -730,7 +730,7 @@ final class FloatingIPsTest extends TestCase
         $firstFloatingIp = $listResponse->floatingIps()[0];
         $floatingIpId = (string) $firstFloatingIp->id();
 
-        $getResponse = $client->floatingIPs()->get($floatingIpId);
+        $getResponse = $client->floatingIPs()->retrieve($floatingIpId);
         $this->assertInstanceOf(RetrieveResponse::class, $getResponse);
         $this->assertEquals($firstFloatingIp->id(), $getResponse->floatingIp()->id());
         $this->assertEquals($firstFloatingIp->name(), $getResponse->floatingIp()->name());
@@ -753,7 +753,7 @@ final class FloatingIPsTest extends TestCase
 
         $this->expectException(RequestException::class);
         $this->expectExceptionMessage('Floating IP not found');
-        $client->floatingIPs()->get('nonexistent');
+        $client->floatingIPs()->retrieve('nonexistent');
     }
 
     /**
@@ -905,7 +905,7 @@ final class FloatingIPsTest extends TestCase
 
         $floatingIpId = '42';
         $actionId = '123';
-        $response = $client->floatingIPs()->actions()->get($floatingIpId, $actionId);
+        $response = $client->floatingIPs()->actions()->retrieve($floatingIpId, $actionId);
 
         $this->assertInstanceOf(ActionResponse::class, $response);
         $this->assertIsArray($response->action());
