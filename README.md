@@ -518,7 +518,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 - `actions()` - Access network actions
 
 ### 💰 Billing
-- `getPricing()` - Get all prices
+- `listPricing()` - Get all prices
 
 ### 💾 Volumes
 - `list()` - List volumes
