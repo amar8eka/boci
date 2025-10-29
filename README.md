@@ -380,10 +380,11 @@ try {
 
 ## Documentation
 
-For more information about the Hetzner Cloud API, please refer to the official documentation:
+For more information about the Hetzner Cloud API, please refer to the following resources:
 
 - [Hetzner Cloud API Documentation](https://docs.hetzner.cloud/)
 - [Hetzner Cloud API Reference](https://docs.hetzner.cloud/reference/cloud)
+- [Hetzner Laravel Integration Guide](https://hetzner-laravel-docs.balkan-oci.com)
 
 ## Contributing
 
